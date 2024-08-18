@@ -1,3 +1,6 @@
+TASK №1-------------------------------------------------------------------------------------------------------------------
+https://leetcode.com/problems/distribute-elements-into-two-arrays-i/ 
+
 public class Solution {
     public int[] ResultArray(int[] nums) {
         List<int> arr1 = new List<int>();
@@ -29,8 +32,49 @@ public class Solution {
 
     }
 }
+TASK №1-------------------------------------------------------------------------------------------------------------------
 
 
+TASK №2-------------------------------------------------------------------------------------------------------------------
+https://leetcode.com/problems/count-the-number-of-special-characters-i/
 
+public class Solution {
+    public int NumberOfSpecialChars(string word) {
+        
+        char[] checkWord = word.ToCharArray();
+        int count = 0;
+        HashSet<char> processedLetters = new HashSet<char>();
+        
 
-https://leetcode.com/problems/distribute-elements-into-two-arrays-i/
+        foreach(char c in checkWord){
+            if(!processedLetters.Contains(char.ToLower(c))){
+                bool value = false;
+                foreach(char inc in checkWord){
+                    if(char.IsLower(c)){
+                        if(char.ToUpper(c) == inc) {
+                            value = true;
+                            break;
+                        }
+                    } else{
+                        if(char.ToLower(c) == inc) {
+                            value = true;
+                            break;
+                        }
+                    }
+                    
+                }
+                if(value){
+                    count++;
+                }
+                processedLetters.Add(char.ToLower(c));
+            }
+            
+        }
+
+       
+        return count;
+
+    }
+}
+
+TASK №2-------------------------------------------------------------------------------------------------------------------
